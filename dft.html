@@ -24,7 +24,8 @@
         	for( var i=0; i<data.length; i++ )	data[i] = 0;
         	for( var j in member ) {
         		var k = 2 * Math.PI * freq * j / samplerate;
-        		for( var i=0; i<data.length; i++ ){
+            console.log(member[j]);
+          	for( var i=0; i<data.length; i++ ){
         			data[i] += member[j] * Math.sin( k * i );
         		}
         	}
@@ -86,6 +87,21 @@
         // ノコギリ波を合成する
         document.getElementById( 'wave5' ).addEventListener( "click", function() {
           waves(440, 0.3, {1:2, 2:-1, 3:2/3, 4:-1/2, 5:2/5, 6:-1/3},1);
+        });
+
+        //和音C
+        document.getElementById( 'wave6' ).addEventListener( "click", function() {
+          waves(440, 0.3, {1.18921:1, 1.49831:1, 1.78180:1},1);
+        });
+
+        //和音D
+        document.getElementById( 'wave7' ).addEventListener( "click", function() {
+          waves(440, 0.3, {1.33484:1, 1.68179:1, 2:1},1);
+        });
+
+        //和音E
+        document.getElementById( 'wave8' ).addEventListener( "click", function() {
+          waves(440, 0.3, {1.49831:1, 1.88775:1, 2.24492:1},1);
         });
 
         document.getElementById( 'graph' ).addEventListener( "click", function() {
@@ -161,6 +177,9 @@
       <input type="button" value="440Hz + 880Hz" id="wave3">
       <input type="button" value="矩形波" id="wave4">
       <input type="button" value="ノコギリ波" id="wave5">
+      <input type="button" value="C" id="wave6">
+      <input type="button" value="D" id="wave7">
+      <input type="button" value="E" id="wave8">
       <input type="button" value="グラフ描画" id="graph">
       <input type="button" value="音像化" id="sound">
       <input type="button" value="DFT" id="dft">
